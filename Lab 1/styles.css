@@ -12,7 +12,8 @@ body {
 }
 
 /* make the header and navbar not horizontal to each other and vertical instead*/
-.header, #navbar {
+.header,
+#navbar {
   display: block;
 }
 
@@ -88,9 +89,10 @@ body {
 
 .grid {
   background-color: #182b49;
-  color: white; 
+  color: white;
   height: 500px;
-  overflow-y: auto; /* overflow vertical scrolling */
+  overflow-y: auto;
+  /* overflow vertical scrolling */
   width: 100%;
   padding: 10px;
   font-size: 32px;
@@ -98,6 +100,7 @@ body {
 
 /* 800px, a reasonable pixel size estimate to know it's on a mobile device */
 @media (max-width: 800px) {
+
   /* modified img tag of */
   #navbar img {
     max-width: 75%;
@@ -106,7 +109,7 @@ body {
     padding: 4px;
   }
 
-  #navbar a{
+  #navbar a {
     display: none;
   }
 
@@ -114,6 +117,14 @@ body {
   p {
     font-size: 20px;
   }
+
+  /* changed h1 header tag */
+  h1 {
+    font-size: 24px;
+    margin: 6px;
+    transform: translateY(16px);
+  }
+
   .wrapper {
     padding: 20px;
     display: grid;
@@ -121,5 +132,4 @@ body {
     gap: 25px;
     justify-items: center;
   }
-
 }
