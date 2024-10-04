@@ -109,6 +109,12 @@ body {
     padding: 4px;
   }
 
+  /* refer z-index and stacking order, this is to fix the error from modifying h1 below 
+  where section text overlapped the nav bar*/
+  #navbar {
+    z-index: 2;
+  }
+
   #navbar a {
     display: none;
   }
@@ -122,7 +128,8 @@ body {
   h1 {
     font-size: 24px;
     margin: 6px;
-    transform: translateY(16px);
+    position: relative;
+    top: 12px;
   }
 
   .wrapper {
