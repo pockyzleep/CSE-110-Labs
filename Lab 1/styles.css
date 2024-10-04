@@ -1,13 +1,10 @@
 :root {
   background-color: rgb(245, 240, 230);
+  max-width: 100%;
 }
 
 body {
   margin: 0;
-}
-
-div {
-  display: inline-block
 }
 
 .header {
@@ -15,11 +12,11 @@ div {
 }
 
 /* make the header and navbar not horizontal to each other and vertical instead*/
-.header,
-#navbar {
+.header, #navbar {
   display: block;
 }
 
+/* # is a unique id so there can't be something same as this unlike . this is only for learning purposes */
 #navbar {
   margin: 0px;
   position: sticky;
@@ -41,8 +38,8 @@ div {
 }
 
 #navbar a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #182B49;
+  color: white;
 }
 
 #navbar a.active {
@@ -63,7 +60,6 @@ div {
 .sec2 {
   background-size: cover;
   background-image: url(https://www.ucsd.edu/_resources/img/bg-orbs-1.jpg);
-  /* background-size: 2000px 1648px; */
   background-position: center;
   color: white;
   font-size: 16px;
@@ -98,4 +94,32 @@ div {
   width: 100%;
   padding: 10px;
   font-size: 32px;
+}
+
+/* 800px, a reasonable pixel size estimate to know it's on a mobile device */
+@media (max-width: 800px) {
+  /* modified img tag of */
+  #navbar img {
+    max-width: 75%;
+    width: auto;
+    height: auto;
+    padding: 4px;
+  }
+
+  #navbar a{
+    display: none;
+  }
+
+  /* changed the paragraph tag default font size */
+  p {
+    font-size: 20px;
+  }
+  .wrapper {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    justify-items: center;
+  }
+
 }
