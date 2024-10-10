@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,50 +10,68 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         .container {
             max-width: 400px;
             margin: 0 auto;
         }
+
         label,
         input,
         select {
             display: block;
             margin-bottom: 10px;
         }
+
         button {
             margin-top: 10px;
         }
+
         .result {
             margin-top: 20px;
         }
+
         select {
             margin-top: 10px;
         }
-        #label-select {
+
+        #labelselect {
             width: 155px;
+            text-align: center;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Create Your Sticky Note!</h2>
         <form id="userForm">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
+
             <label for="content"> Content:</label>
             <input type="text" id="content" name="content" required>
+
             <label for="labelselect">Label Your Note:</label>
             <select name="note-labels" id="labelselect">
+                <option value="choose">--Please pick a label--</option>
                 <option value="personal">Personal</option>
                 <option value="team">Team</option>
             </select>
+
             <button type="submit">Submit</button>
+
         </form>
+
         <div class="result" id="result"></div>
     </div>
+
     <script>
+
+        // form submission
         document.getElementById("userForm").addEventListener("submit", function (event) {
             event.preventDefault();
+
             // Get the input values
             const title = document.getElementById("title").value;
             const content = document.getElementById("content").value;
@@ -61,6 +80,13 @@
             // where this object each has a value property we can get the index that was selected
             var getSelectElem = document.getElementById('labelselect');
             var selectedLabel = getSelectElem.options[getSelectElem.selectedIndex].text;
+
+            // if label option value is "choose" deny via alert and error a redo
+            if (getSelectElem.value == "choose") {
+                window.alert("You did not pick a label.\nTry again.");
+                return; // break from function to prevent form submission
+            }
+
             // Display the result
             const resultDiv = document.getElementById("result");
             resultDiv.innerHTML = `<h3>Submitted Information</h3>
@@ -68,18 +94,55 @@
                                   <p>Content: ${content}</p>
                                   <p>Label: ${selectedLabel}</p>`;
         });
+
+        // note-to-myself: first read about DOM and note that document is an obj
+        // which can be basically a tree that can access things
+        // think of it like a data structure almost where document is the top of the butter
+        // background color when hover or click on specific text form
         document.getElementById("title").addEventListener("focus", function () {
             this.style.backgroundColor = "#e0f7fa";  // Light blue background on focus
         });
+
         document.getElementById("title").addEventListener("blur", function () {
             this.style.backgroundColor = "";  // Reset background on blur
         });
+
         document.getElementById("content").addEventListener("focus", function () {
             this.style.backgroundColor = "#e0f7fa";  // Light blue background on focus
         });
+
         document.getElementById("content").addEventListener("blur", function () {
             this.style.backgroundColor = "";  // Reset background on blur
         });
+
+        document.getElementById("labelselect").addEventListener("focus", function () {
+            this.style.backgroundColor = "#e0f7fa";  // Light blue background on focus
+        });
+
+        document.getElementById("labelselect").addEventListener("blur", function () {
+            this.style.backgroundColor = "";  // Reset background on blur
+        });
+
+        // check if text form have >= 50 characters using an event handler
+        // syntax: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+        document.getElementById("title").addEventListener("input", function () {
+            // get the text value from the input
+            // then check the string length
+            var count = this.value.length;
+
+            // debug print through console using inspect on the site
+            // console.log("char count: " + count);
+
+            // checking over 50 char however there is a symptom s.t. it can add over 50+
+            // at the html body i could set a maxlength for the text input (not lab related)
+            if (count > 50) {
+                window.alert("Title cannot exceed 50 characters.");
+            }
+
+        });
+
+
     </script>
 </body>
+
 </html>
