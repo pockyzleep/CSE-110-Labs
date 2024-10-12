@@ -2,6 +2,9 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+import { Label, Note } from "./types/types"; // Import the Label type from the appropriate module
+import { dummyNotesList } from "./constants"; // Import the dummyNotesList from the appropriate module
+
 function App() {
   return (
     <form className="note-form">
@@ -16,13 +19,17 @@ function App() {
       <div>
         <button type="submit">Create Note</button>
       </div>
-      <div className="app-container">
-        <div className="note-individual">
-          <button>x</button>
-          <h2> 1st Note Title </h2>
-          <p> 1st Note Content </p>
-          <p> 1st Note Label </p>
-        </div>
+      <div className="notes-grid">
+        {dummyNotesList.map((note) => (
+          <div key={note.id} className="note-item">
+            <div className="notes-header">
+              <button>x</button>
+            </div>
+            <h2> {note.title} </h2>
+            <p> {note.content} </p>
+            <p> {note.label} </p>
+          </div>
+        ))}
       </div>
     </form>
   );
