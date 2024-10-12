@@ -2,9 +2,15 @@
   border: 1px solid black;
   display: "flex";
   flex-direction: column;
- }
- 
- .app-container {
+}
+
+.app-container {
   display: "flex";
   flex-direction: column;
- }
+}
+
+.note-form {
+  display: "flex";
+  border: 1px solid black;
+  flex-direction: column;
+}
