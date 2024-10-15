@@ -23,11 +23,11 @@ function App() {
 
   // hook foos and handlers
   const toggleLike = (titleOfNote: string) => {
-    setLikes((previousLikes) => {
-      if (previousLikes.includes(titleOfNote)) {
-        return previousLikes.filter((title) => title !== titleOfNote);
+    setLikes((prevLikes) => {
+      if (prevLikes.includes(titleOfNote)) {
+        return prevLikes.filter((title) => title !== titleOfNote);
       } else {
-        return [...previousLikes, titleOfNote];
+        return [...prevLikes, titleOfNote];
       }
     });
   };
@@ -41,10 +41,12 @@ function App() {
     setCreateNote(initialNote);
   };
 
+  // can modulate this to go blur if not clicking on it for label when it reselects
   const clickingNoteHandler = (note: Note) => {
     setSelectedNote(note);
   };
 
+  // refer to contenteditable tag, onblur event, and HTML div element
   const editTitleOrContentHandler = (
     event: React.FormEvent<HTMLDivElement>,
     field: keyof Note // this is a type operator s.t. takes obj type and produce a value such string literal of key
@@ -53,6 +55,9 @@ function App() {
     setSelectedNote((prev) => ({ ...prev, [field]: newContent }));
   };
 
+  // did not use contenteditable tag but used the prev exercise skeletal code
+  // used label update by setting event.target.value then typecast as Label
+  // refer to shorthand e event in the return() sec of App()
   const editLabelHandler = (
     event: React.ChangeEvent<HTMLSelectElement>,
     noteId: number
@@ -65,10 +70,9 @@ function App() {
     );
   };
 
+  // refer filter()
   const deleteNoteHandler = (noteId: number) => {
-    setNotes((previousNotes) =>
-      previousNotes.filter((note) => note.id !== noteId)
-    );
+    setNotes((notes) => notes.filter((note) => note.id !== noteId));
   };
 
   return (
