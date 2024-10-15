@@ -51,9 +51,12 @@ h2 {
 }
 
 .note-form {
+  float: inline-start;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin: 10px;
+  width: 250px;
 }
 
 textarea,
@@ -91,4 +94,42 @@ input {
 .edit-buttons button:last-of-type {
   background-color: rgb(220, 89, 89);
   color: white;
+}
+
+.like-button {
+  transform: translateY(-4px);
+}
+
+.delete-button {
+  transform: translateY(-4px);
+}
+
+body.dark-mode {
+  background-color: rgb(13, 13, 13);
+}
+
+.dark-mode .delete-button {
+  background-color: gold;
+}
+
+.dark-mode .note-item {
+  background-color: rgb(37, 33, 33);
+  border: none;
+  color: white;
+}
+
+.dark-mode .note-form button {
+  background-color: #6ab673;
+}
+
+.dark-mode .favlist {
+  color: white;
+}
+
+.theme-container {
+  transform: translate(210px, 40px);
+}
+
+.change-theme {
+  float: right;
 }

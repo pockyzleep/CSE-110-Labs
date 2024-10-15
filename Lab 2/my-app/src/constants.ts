@@ -1,4 +1,5 @@
 import { Label } from "./types/types";
+
 export const dummyNotesList = [
   {
     id: 1,
