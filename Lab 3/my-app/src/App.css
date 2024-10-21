@@ -133,3 +133,9 @@ body.dark-mode {
 .change-theme {
   float: right;
 }
+
+.center-a-div {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
