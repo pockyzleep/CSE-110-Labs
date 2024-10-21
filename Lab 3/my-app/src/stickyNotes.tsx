@@ -7,7 +7,7 @@ import { dummyNotesList } from "./constants"; // Import the dummyNotesList from 
 import { ClickCounter } from "./starterFiles/hooksExercise";
 import { UseTheme } from "./hooks";
 
-function App() {
+export const StickyNotes = () => {
   // vars
   const [likes, setLikes] = useState<string[]>([]);
   const { isDarkMode, modeToggler } = UseTheme(); // refer hooks.tsx
@@ -175,11 +175,11 @@ function App() {
           </div>
         ))}
         {/* ClickCounter uses a context hook which bypasses prop inheritance, I set this example from the exercise
-        to denote how it can avoid dark-mode */}
+              to denote how it can avoid dark-mode */}
         <ClickCounter />
       </div>
     </div>
   );
-}
+};
 
-export default App;
+export default StickyNotes;
