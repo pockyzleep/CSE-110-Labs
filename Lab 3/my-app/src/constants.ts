@@ -1,5 +1,6 @@
 import { Label } from "./types";
 
+// initial testing of predefined sticky note instances
 export const dummyNotesList = [
   {
     id: 1,
