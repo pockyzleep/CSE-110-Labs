@@ -1,0 +1,25 @@
+Apologies if this is the incorrect format: listed all test header descriptions to satisfy requirements
+
+toDoList.test.tsx
+    describe("READ")
+        test("check all item occurences")
+        test("verify box count")
+
+stickyNotes.test.tsx
+    describe("Create StickyNote")
+        test("renders create note form")
+        test("creates a new note")
+    describe("Read Dummy Notes")
+        test("Check initial dummy notes")
+    describe("Read")
+        test("confirm present notes")
+    describe("Create")
+        test("create new note")
+    describe("Update")
+        test("update note title")
+    describe("Delete")
+        test("trigger x button to delete note")
+        test("edge case: remove succeeding note and retain that the first precedent note is still there")
+    
+
+

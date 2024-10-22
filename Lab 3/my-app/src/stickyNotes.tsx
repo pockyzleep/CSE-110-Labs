@@ -84,6 +84,7 @@ export const StickyNotes = () => {
         <div>
           <input
             placeholder="Note Title"
+            value={createNote.title}
             onChange={(event) =>
               setCreateNote({ ...createNote, title: event.target.value })
             }
@@ -93,6 +94,8 @@ export const StickyNotes = () => {
 
         <div>
           <textarea
+            placeholder="Note Content"
+            value={createNote.content}
             onChange={(event) =>
               setCreateNote({ ...createNote, content: event.target.value })
             }
@@ -102,6 +105,7 @@ export const StickyNotes = () => {
 
         <div>
           <select
+            value={createNote.label}
             onChange={(event) =>
               setCreateNote({
                 ...createNote,
@@ -130,6 +134,7 @@ export const StickyNotes = () => {
         {notes.map((note) => (
           <div
             key={note.id}
+            data-testid={`note-${note.id}`}
             className={`note-item ${
               selectedNote.id === note.id ? "selected" : ""
             }`}
@@ -142,10 +147,16 @@ export const StickyNotes = () => {
                 </button>
               </div>
               <div className="delete-button">
-                <button onClick={() => deleteNoteHandler(note.id)}>x</button>
+                <button
+                  data-testid={`delete-note-${note.id}`}
+                  onClick={() => deleteNoteHandler(note.id)}
+                >
+                  x
+                </button>
               </div>
             </div>
             <h2
+              data-testid={`note-title-${note.id}`}
               contentEditable={selectedNote.id === note.id}
               onBlur={(e) => editTitleOrContentHandler(e, "title")}
               suppressContentEditableWarning={true}
@@ -153,6 +164,7 @@ export const StickyNotes = () => {
               {note.title}
             </h2>
             <p
+              data-testid={`note-content-${note.id}`}
               contentEditable={selectedNote.id === note.id}
               onBlur={(e) => editTitleOrContentHandler(e, "content")}
               suppressContentEditableWarning={true}
